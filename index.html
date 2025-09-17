@@ -1,44 +1,171 @@
 <!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Read Only by HTML5 UP</title>
+		<title>FoodWise - Food Waste Reduction App</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			@import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400");
+			@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+			/* Basic Reset and Styles */
+			html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, strong, em, ul, li, form, label, input, textarea, button, section, article, header, footer, nav { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+			html { box-sizing: border-box; }
+			*, *:before, *:after { box-sizing: inherit; }
+			body { background: #fff; color: #888; font-family: "Lato", sans-serif; font-size: 16pt; font-weight: 400; line-height: 1.75em; }
+			
+			a { transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; border-bottom: solid 1px #e4e4e4; color: inherit; text-decoration: none; }
+			a:hover { border-bottom-color: transparent; color: #4acaa8 !important; }
+			
+			strong, b { color: #777; font-weight: 700; }
+			em, i { font-style: italic; }
+			p { margin: 0 0 2.25em 0; }
+			
+			h1, h2, h3, h4, h5, h6 { color: #777; font-weight: 700; line-height: 1em; margin: 0 0 0.5625em 0; }
+			h2 { font-size: 2em; line-height: 1.5em; }
+			h3 { font-size: 1.75em; line-height: 1.5em; }
+			h4 { font-size: 1.25em; line-height: 1.5em; }
+			
+			.container { margin: 0 auto; max-width: calc(100% - 4.5em); width: 45em; }
+			
+			/* Header Styles */
+			#header {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				background: #4acaa8;
+				color: #d2f2e9;
+				height: 100%;
+				overflow-y: auto;
+				position: fixed;
+				text-align: center;
+				top: 0;
+				width: 23em;
+				right: 0;
+			}
+			
+			#header h1, #header h2, #header h3, #header h4, #header h5, #header h6 { color: #ffffff; }
+			#header h1 a, #header h2 a, #header h3 a, #header h4 a, #header h5 a, #header h6 a { color: #ffffff; }
+			#header header p { color: #b7eadc; }
+			#header a { color: #d2f2e9; }
+			#header a:hover { color: #ffffff !important; }
+			
+			#header > header { flex-shrink: 0; padding: 3em; }
+			#header > header .avatar { display: block; margin: 0 auto 2.25em auto; width: 8em; border-radius: 100%; background: #fff; padding: 1em; }
+			#header > header h1 { font-size: 1.75em; margin: 0; }
+			#header > header p { color: #d2f2e9; font-style: italic; margin: 1em 0 0 0; }
+			
+			#header > nav { flex-grow: 1; }
+			#header > nav ul { list-style: none; margin: 0; padding: 0; }
+			#header > nav ul li { border-top: solid 2px #5ccfb1; display: block; padding: 0; }
+			#header > nav ul li a { transition: none; border: 0; color: #ffffff !important; display: block; padding: 0.85em 0; text-decoration: none; }
+			#header > nav ul li a.active { background: #fff; color: #4acaa8 !important; }
+			#header > nav ul li:first-child { border-top: 0; }
+			
+			#header > footer { flex-shrink: 0; bottom: 0; left: 0; padding: 2em; width: 100%; }
+			#header > footer .icons { margin: 0; list-style: none; padding-left: 0; }
+			#header > footer .icons li { display: inline-block; padding: 0 1em 0 0; }
+			#header > footer .icons li:last-child { padding-right: 0; }
+			#header > footer .icons li a { color: #b7eadc; font-size: 1.25em; }
+			
+			/* Main Content */
+			#wrapper { background: #fff; padding-right: 23em; }
+			#main > section { border-top: solid 6px #f4f4f4; }
+			#main > section > .container { padding: 6em 0 4em 0; }
+			#main > section:first-child { border-top: 0; }
+			
+			.image.main { display: block; height: 20em; border-radius: 0; }
+			.image.main img { border-radius: 0; width: 100%; height: 100%; object-fit: cover; }
+			
+			header.major h2 { color: #4acaa8; font-size: 3.5em; }
+			header.major h2 + p { color: #777; font-size: 1.75em; font-weight: 700; margin-top: -0.75em; }
+			
+			/* Team Grid */
+			.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2em; margin: 2em 0; }
+			.team-member { text-align: center; padding: 1.5em; border: 2px solid #e4e4e4; border-radius: 5px; }
+			.team-member .avatar { width: 120px; height: 120px; border-radius: 100%; background: #f4f4f4; margin: 0 auto 1em auto; display: flex; align-items: center; justify-content: center; font-size: 3em; color: #4acaa8; }
+			.team-member h4 { margin-bottom: 0.5em; }
+			.team-member p { font-size: 0.9em; color: #aaa; }
+			
+			/* Features */
+			.features { margin: 2em 0; }
+			.feature-item { display: flex; align-items: center; margin: 2em 0; padding: 2em 0; border-bottom: 2px solid #f4f4f4; }
+			.feature-item:last-child { border-bottom: none; }
+			.feature-icon { flex: 0 0 80px; background: #4acaa8; color: white; width: 80px; height: 80px; border-radius: 100%; display: flex; align-items: center; justify-content: center; font-size: 2em; margin-right: 2em; }
+			.feature-content { flex: 1; }
+			.feature-content h4 { margin-bottom: 0.5em; }
+			
+			/* Form Styles */
+			form { margin: 0 0 2.25em 0; }
+			input[type="text"], input[type="email"], textarea { appearance: none; border-radius: 5px; border: solid 2px #e4e4e4; color: inherit; display: block; outline: 0; padding: 0 1em; text-decoration: none; width: 100%; margin-bottom: 1em; }
+			input[type="text"], input[type="email"] { height: 2.75em; }
+			textarea { padding: 0.75em 1em; min-height: 150px; resize: vertical; }
+			input[type="text"]:focus, input[type="email"]:focus, textarea:focus { border-color: #4acaa8; }
+			
+			.button { appearance: none; transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; background-color: #4acaa8; border-radius: 5px; border: 0; color: #ffffff !important; cursor: pointer; display: inline-block; font-weight: 700; height: 2.75em; line-height: 2.75em; padding: 0 1.5em; text-align: center; text-decoration: none; white-space: nowrap; }
+			.button:hover { background-color: #5ed0b1; color: #ffffff !important; }
+			.button.alt { background-color: transparent; box-shadow: inset 0 0 0 2px #e4e4e4; color: #777 !important; }
+			.button.alt:hover { background-color: #f4f4f4; color: #777 !important; }
+			
+			/* Footer */
+			#footer { background: #fafafa; border-top: 0; color: #c0c0c0; overflow: hidden; padding: 4em 0 2em 0; }
+			#footer .copyright { line-height: 1em; list-style: none; padding: 0; text-align: center; }
+			#footer .copyright li { border-left: solid 1px #d4d4d4; display: inline-block; font-size: 0.8em; margin-left: 1em; padding-left: 1em; }
+			#footer .copyright li:first-child { border-left: 0; margin-left: 0; padding-left: 0; }
+			
+			/* Responsive */
+			@media screen and (max-width: 1024px) {
+				#header { transform: translateX(23em); }
+				#wrapper { padding: 44px 0 1px 0; }
+				
+				#titleBar { display: block; height: 44px; left: 0; position: fixed; top: 0; width: 100%; z-index: 10001; background: #222; color: #fff; }
+				#titleBar .title { color: #fff; display: block; font-weight: 700; height: 44px; line-height: 44px; padding: 0 1em; width: 100%; text-align: left; }
+				#titleBar .toggle { height: 4em; position: absolute; top: 0; width: 6em; border: 0; outline: 0; right: 0; background: #4acaa8; color: #fff; }
+				#titleBar .toggle:before { content: '\f0c9'; font-family: 'Font Awesome 5 Free'; font-weight: 900; display: block; font-size: 18px; height: 44px; line-height: 44px; text-align: center; }
+			}
+			
+			@media screen and (max-width: 736px) {
+				.team-grid { grid-template-columns: 1fr; }
+				.feature-item { flex-direction: column; text-align: center; }
+				.feature-icon { margin-right: 0; margin-bottom: 1em; }
+				#header { width: 17em; transform: translateX(17em); }
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-					<h1 id="logo"><a href="#">Willis Corto</a></h1>
-					<p>I got reprogrammed by a rogue AI<br />
-					and now I'm totally cray</p>
+					<div class="avatar">
+						<i class="fas fa-leaf"></i>
+					</div>
+					<h1 id="logo"><a href="#">FoodWise</a></h1>
+					<p>Reducing food waste through<br />
+					smart digital solutions</p>
 				</header>
 				<nav id="nav">
 					<ul>
 						<li><a href="#one" class="active">About</a></li>
-						<li><a href="#two">Things I Can Do</a></li>
-						<li><a href="#three">A Few Accomplishments</a></li>
-						<li><a href="#four">Contact</a></li>
+						<li><a href="#two">Features</a></li>
+						<li><a href="#three">Our Team</a></li>
+						<li><a href="#four">Research</a></li>
+						<li><a href="#five">Contact</a></li>
 					</ul>
 				</nav>
 				<footer>
 					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="#" class="fab fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="fas fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 				</footer>
 			</section>
+
+		<!-- Title Bar (Mobile) -->
+		<div id="titleBar" style="display: none;">
+			<div class="title">FoodWise</div>
+			<button class="toggle"></button>
+		</div>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -49,61 +176,109 @@
 						<!-- One -->
 							<section id="one">
 								<div class="image main" data-position="center">
-									<img src="images/banner.jpg" alt="" />
+									<div style="background: linear-gradient(45deg, #4acaa8, #5ed0b1); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4em;">
+										<i class="fas fa-apple-alt"></i>
+									</div>
 								</div>
 								<div class="container">
 									<header class="major">
-										<h2>Read Only</h2>
-										<p>Just an incredibly simple responsive site<br />
-										template freebie by <a href="http://html5up.net">HTML5 UP</a>.</p>
+										<h2>FoodWise</h2>
+										<p>A comprehensive digital solution to reduce food waste<br />
+										at the household and community level</p>
 									</header>
-									<p>Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col. Commodo id in arcu ante lorem ipsum sed accumsan erat praesent faucibus commodo ac mi lacus. Adipiscing mi ac commodo. Vis aliquet tortor ultricies non ante erat nunc integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum.</p>
+									<p>Food waste is one of the most pressing global challenges, with 40% of food produced in the United States being thrown away. Our team is developing FoodWise, an integrated mobile application that addresses food waste through smart inventory tracking, meal planning, community sharing, and educational features.</p>
+									<p>By combining automated food tracking, recipe suggestions based on available ingredients, and community sharing capabilities, FoodWise aims to help households reduce their food waste while building more sustainable consumption habits.</p>
 								</div>
 							</section>
 
 						<!-- Two -->
 							<section id="two">
 								<div class="container">
-									<h3>Things I Can Do</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer lorem ipsum dolor sit amet.</p>
-									<ul class="feature-icons">
-										<li class="icon solid fa-code">Write all the code</li>
-										<li class="icon solid fa-cubes">Stack small boxes</li>
-										<li class="icon solid fa-book">Read books and stuff</li>
-										<li class="icon solid fa-coffee">Drink much coffee</li>
-										<li class="icon solid fa-bolt">Lightning bolt</li>
-										<li class="icon solid fa-users">Shadow clone technique</li>
-									</ul>
+									<h3>Key Features</h3>
+									<p>Our solution addresses food waste through multiple integrated approaches, targeting both individual and community-level challenges.</p>
+									
+									<div class="features">
+										<div class="feature-item">
+											<div class="feature-icon">
+												<i class="fas fa-barcode"></i>
+											</div>
+											<div class="feature-content">
+												<h4>Smart Inventory Tracking</h4>
+												<p>Automated food tracking with barcode scanning and expiration date monitoring to prevent spoilage and reduce waste.</p>
+											</div>
+										</div>
+										
+										<div class="feature-item">
+											<div class="feature-icon">
+												<i class="fas fa-utensils"></i>
+											</div>
+											<div class="feature-content">
+												<h4>Recipe Suggestions</h4>
+												<p>Generate personalized meal ideas using ingredients you already have, helping you use food before it expires.</p>
+											</div>
+										</div>
+										
+										<div class="feature-item">
+											<div class="feature-icon">
+												<i class="fas fa-share-alt"></i>
+											</div>
+											<div class="feature-content">
+												<h4>Community Sharing</h4>
+												<p>Connect with neighbors and local organizations to share surplus food and reduce community-wide waste.</p>
+											</div>
+										</div>
+										
+										<div class="feature-item">
+											<div class="feature-icon">
+												<i class="fas fa-graduation-cap"></i>
+											</div>
+											<div class="feature-content">
+												<h4>Education & Tips</h4>
+												<p>Learn proper food storage techniques and waste reduction strategies through interactive educational content.</p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</section>
 
 						<!-- Three -->
 							<section id="three">
 								<div class="container">
-									<h3>A Few Accomplishments</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<div class="features">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Possibly broke spacetime</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+									<h3>Our Team</h3>
+									<p>We are a dedicated team of students passionate about creating sustainable solutions to real-world problems.</p>
+									
+									<div class="team-grid">
+										<div class="team-member">
+											<div class="avatar">
+												<i class="fas fa-user"></i>
 											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Terraformed a small moon</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											<h4>Team Member 1</h4>
+											<p>Role & Specialization</p>
+										</div>
+										
+										<div class="team-member">
+											<div class="avatar">
+												<i class="fas fa-user"></i>
 											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Snapped dark matter in the wild</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											<h4>Team Member 2</h4>
+											<p>Role & Specialization</p>
+										</div>
+										
+										<div class="team-member">
+											<div class="avatar">
+												<i class="fas fa-user"></i>
 											</div>
-										</article>
+											<h4>Team Member 3</h4>
+											<p>Role & Specialization</p>
+										</div>
+										
+										<div class="team-member">
+											<div class="avatar">
+												<i class="fas fa-user"></i>
+											</div>
+											<h4>Team Member 4</h4>
+											<p>Role & Specialization</p>
+										</div>
 									</div>
 								</div>
 							</section>
@@ -111,355 +286,48 @@
 						<!-- Four -->
 							<section id="four">
 								<div class="container">
-									<h3>Contact Me</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
+									<h3>Research & Impact</h3>
+									<p>Our solution is grounded in extensive research on food waste patterns and user behavior.</p>
+									
+									<h4>Key Statistics</h4>
+									<ul>
+										<li><strong>40% of food produced in the US is wasted</strong> - USDA findings</li>
+										<li><strong>257 pounds per household annually</strong> - Average food waste per American family</li>
+										<li><strong>1 in 8 Americans are food insecure</strong> - Making food waste reduction crucial</li>
+										<li><strong>78% of people want to reduce waste</strong> - Survey data shows motivation exists</li>
+									</ul>
+									
+									<h4>Our Approach</h4>
+									<p>Based on stakeholder analysis and task analysis, we identified key user groups including college students, busy families, and low-income households. Our solution addresses five core task categories:</p>
+									
+									<ul>
+										<li><strong>Planning and Shopping:</strong> Smart grocery lists and meal planning</li>
+										<li><strong>Inventory Management:</strong> Tracking and monitoring food items</li>
+										<li><strong>Community Sharing:</strong> Connecting users to share surplus food</li>
+										<li><strong>Education:</strong> Teaching storage techniques and waste reduction</li>
+										<li><strong>Distribution:</strong> Facilitating producer-to-consumer connections</li>
+									</ul>
+									
+									<h4>Success Criteria</h4>
+									<p>Our project success will be measured through design validation, user experience metrics, problem-solution alignment, and educational impact. We aim for 80% user navigation success, 3.5+ satisfaction ratings, and 60% improvement in user confidence about food management.</p>
 								</div>
 							</section>
 
 						<!-- Five -->
-						<!--
 							<section id="five">
 								<div class="container">
-									<h3>Elements</h3>
-
-									<section>
-										<h4>Text</h4>
-										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
-										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
-
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
+									<h3>Get in Touch</h3>
+									<p>Interested in learning more about FoodWise or collaborating with our team? We'd love to hear from you.</p>
+									<form method="post" action="#">
+										<div>
+											<input type="text" name="name" id="name" placeholder="Name" />
+											<input type="email" name="email" id="email" placeholder="Email" />
+											<textarea name="message" id="message" placeholder="Message" rows="6"></textarea>
+											<input type="submit" value="Send Message" class="button" />
 										</div>
-										<h5>Actions</h5>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
-										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
-											</div>
-										</div>
-									</section>
-
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
-
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
+									</form>
 								</div>
 							</section>
-						-->
 
 					</div>
 
@@ -467,7 +335,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					<section id="footer">
 						<div class="container">
 							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; FoodWise Team. All rights reserved.</li>
+								<li>Design: Adapted from HTML5 UP</li>
 							</ul>
 						</div>
 					</section>
@@ -475,13 +344,56 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script>
+				// Mobile menu toggle
+				document.addEventListener('DOMContentLoaded', function() {
+					const toggle = document.querySelector('#titleBar .toggle');
+					const header = document.getElementById('header');
+					const wrapper = document.getElementById('wrapper');
+					const titleBar = document.getElementById('titleBar');
+					
+					if (toggle) {
+						toggle.addEventListener('click', function() {
+							document.body.classList.toggle('header-visible');
+						});
+					}
+					
+					// Smooth scrolling for navigation links
+					const navLinks = document.querySelectorAll('#header nav a');
+					navLinks.forEach(link => {
+						link.addEventListener('click', function(e) {
+							e.preventDefault();
+							const target = document.querySelector(this.getAttribute('href'));
+							if (target) {
+								target.scrollIntoView({ behavior: 'smooth' });
+								document.body.classList.remove('header-visible');
+							}
+						});
+					});
+					
+					// Update active nav state on scroll
+					window.addEventListener('scroll', function() {
+						const sections = document.querySelectorAll('section[id]');
+						const navLinks = document.querySelectorAll('#header nav a');
+						
+						let current = '';
+						sections.forEach(section => {
+							const sectionTop = section.offsetTop;
+							const sectionHeight = section.clientHeight;
+							if (pageYOffset >= sectionTop - 200) {
+								current = section.getAttribute('id');
+							}
+						});
+						
+						navLinks.forEach(link => {
+							link.classList.remove('active');
+							if (link.getAttribute('href') === '#' + current) {
+								link.classList.add('active');
+							}
+						});
+					});
+				});
+			</script>
 
 	</body>
 </html>
