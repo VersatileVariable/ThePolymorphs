@@ -1,34 +1,73 @@
-Read Only by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+ThePolymorphs - Food Waste Reduction System
+A comprehensive digital platform combining AI-powered tracking, community sharing, and educational tools to reduce food waste at both household and community levels.
+About The Project
+ThePolymorphs is an integrated food waste reduction system that addresses the critical issue of food waste through multiple approaches:
 
+Smart Inventory Tracking: Automated food tracking with barcode scanning and AI-powered expiration monitoring
+AI Recipe Suggestions: Personalized meal ideas using ingredients you already have
+Community Sharing: Connect with neighbors to share surplus food
+Interactive Education: Gamified learning about food storage and waste reduction
 
-Just a super simple single-page responsive template built for personal sites and portfolios
-(although it'd definitely work for other stuff too). Includes a contact form, pre-styled
-elements, and Sass sources.
+Key Statistics
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+40% of US food production is wasted
+Average household wastes 257 pounds of food annually
+1 in 8 Americans experience food insecurity
+78% of people want to reduce their food waste
 
-(* = Not included)
+Team
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+Anna Galeano - Data Analyst & System Integration Specialist
+Louis Godfrey - Software Developer & Project Lead
+Shrinidhi Kulkarni - UX/UI Designer & Research Analyst
+Princess Lee Ellerbe - Community Outreach & Marketing Specialist
 
-AJ
-aj@lkn.io | @ajlkn
-
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+Project Structure
+ThePolymorphs/
+├── README.md                           # This file - project overview
+├── LICENSE.txt                         # Project license
+├── package.json                        # Node.js dependencies and scripts
+│
+├── public/                             # Static assets for web hosting
+│   ├── index.html                      # Main website (production-ready)
+│   ├── assets/                         # Static resources
+│   │   └── images/                     # Team photos and graphics
+│   │       ├── AnnaGaleano.png
+│   │       ├── LouisGodfrey.png
+│   │       ├── ShrinídhiKulkarni.png
+│   │       └── PrincessLeeEllerbe.png
+│   ├── css/                            # Compiled/production CSS
+│   └── js/                             # Compiled/production JavaScript
+│
+├── src/                                # Source code (development)
+│   ├── components/                     # Reusable UI components
+│   ├── pages/                          # Individual page components
+│   ├── styles/                         # SCSS/CSS source files
+│   │   └── main.css                    # Main stylesheet
+│   ├── scripts/                        # JavaScript modules
+│   │   └── main.js                     # Main JavaScript entry
+│   ├── utils/                          # Helper functions and utilities
+│   └── config/                         # App configuration files
+│
+├── tests/                              # Testing suite
+│   ├── unit/                           # Unit tests
+│   ├── integration/                    # Integration tests
+│   └── e2e/                            # End-to-end tests
+│
+├── docs/                               # Documentation
+│   ├── setup.md                        # Setup instructions
+│   ├── deployment.md                   # Deployment guide
+│   └── api.md                          # API documentation (if applicable)
+│
+├── diagrams/                           # Project diagrams and wireframes
+│   ├── CommunityGarden.drawio          # Community sharing feature design
+│   ├── CommunityGardenWireframe.drawio # Wireframe mockups
+│   ├── Logging.drawio                  # Data logging architecture
+│   └── Recipe.drawio                   # Recipe suggestion flow
+│
+├── scripts/                            # Build and deployment scripts
+│   ├── build.sh                        # Production build script
+│   └── deploy.sh                       # Deployment automation
+│
+└── config/                             # Configuration files
+    └── vite.config.js                  # Build tool configuration
