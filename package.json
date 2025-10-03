@@ -1,0 +1,19 @@
+{
+  "name": "the-polymorphs",
+  "version": "1.0.0",
+  "description": "ThePolymorphs website and project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "python3 -m http.server 8000 --directory public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
