@@ -8,7 +8,6 @@
 			@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 			@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
-			/* Reset & Base */
 			* {
 				margin: 0;
 				padding: 0;
@@ -24,7 +23,6 @@
 				--text-dark: #1a1a1a;
 				--text-medium: #4a5568;
 				--text-light: #718096;
-				--glass-bg: rgba(255, 255, 255, 0.1);
 				--shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
 				--shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
 				--gradient-primary: linear-gradient(135deg, #2d5a3d 0%, #4a7c5a 100%);
@@ -44,7 +42,6 @@
 				overflow-x: hidden;
 			}
 
-			/* Creative Interactive Effects */
 			.tilt-effect {
 				transition: transform 0.3s ease;
 			}
@@ -73,11 +70,6 @@
 				left: 100%;
 			}
 
-			.magnetic-effect {
-				transition: transform 0.2s ease;
-			}
-
-			/* Floating Particles */
 			.particles {
 				position: fixed;
 				top: 0;
@@ -88,20 +80,6 @@
 				z-index: 1;
 			}
 
-			.particle {
-				position: absolute;
-				background: var(--light-green);
-				border-radius: 50%;
-				opacity: 0.1;
-				animation: float 6s ease-in-out infinite;
-			}
-
-			@keyframes float {
-				0%, 100% { transform: translateY(0px) rotate(0deg); }
-				50% { transform: translateY(-20px) rotate(180deg); }
-			}
-
-			/* Navigation */
 			.nav-container {
 				position: fixed;
 				top: 0;
@@ -134,22 +112,6 @@
 				font-weight: 700;
 				color: var(--primary-green);
 				text-decoration: none;
-				position: relative;
-			}
-
-			.logo::after {
-				content: '';
-				position: absolute;
-				bottom: -5px;
-				left: 0;
-				width: 0;
-				height: 3px;
-				background: var(--gradient-primary);
-				transition: width 0.3s ease;
-			}
-
-			.logo:hover::after {
-				width: 100%;
 			}
 
 			.nav-menu {
@@ -162,7 +124,6 @@
 				color: var(--text-medium);
 				text-decoration: none;
 				font-weight: 500;
-				position: relative;
 				padding: 0.5rem 1rem;
 				border-radius: 25px;
 				transition: all 0.3s ease;
@@ -171,7 +132,6 @@
 			.nav-link:hover, .nav-link.active {
 				color: var(--primary-green);
 				background: var(--bg-light-green);
-				transform: translateY(-2px);
 			}
 
 			.nav-toggle {
@@ -183,32 +143,13 @@
 				cursor: pointer;
 			}
 
-			/* Hero Section */
 			.hero {
 				min-height: 100vh;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				position: relative;
 				background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light-green) 100%);
-				overflow: hidden;
-				padding-top: 80px; /* Account for fixed nav */
-			}
-
-			.hero-bg {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				opacity: 0.1;
-				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%234a7c5a"/></svg>') repeat;
-				animation: drift 20s linear infinite;
-			}
-
-			@keyframes drift {
-				0% { transform: translateX(0) translateY(0); }
-				100% { transform: translateX(-100px) translateY(-100px); }
+				padding-top: 80px;
 			}
 
 			.hero-content {
@@ -219,11 +160,6 @@
 				grid-template-columns: 1fr 1fr;
 				gap: 4rem;
 				align-items: center;
-				z-index: 10;
-			}
-
-			.hero-text {
-				animation: slideInLeft 1s ease-out;
 			}
 
 			.hero-subtitle {
@@ -254,13 +190,6 @@
 				line-height: 1.7;
 			}
 
-			.hero-visual {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				animation: slideInRight 1s ease-out;
-			}
-
 			.hero-icon {
 				width: 300px;
 				height: 300px;
@@ -271,43 +200,10 @@
 				justify-content: center;
 				font-size: 8rem;
 				color: white;
-				position: relative;
 				box-shadow: var(--shadow-soft);
-				animation: pulse 3s ease-in-out infinite;
+				margin: 0 auto;
 			}
 
-			.hero-icon::before {
-				content: '';
-				position: absolute;
-				width: 120%;
-				height: 120%;
-				border: 3px solid var(--light-green);
-				border-radius: 50%;
-				opacity: 0.3;
-				animation: ripple 2s ease-out infinite;
-			}
-
-			@keyframes pulse {
-				0%, 100% { transform: scale(1); }
-				50% { transform: scale(1.05); }
-			}
-
-			@keyframes ripple {
-				0% { transform: scale(0.8); opacity: 0.7; }
-				100% { transform: scale(1.2); opacity: 0; }
-			}
-
-			@keyframes slideInLeft {
-				from { opacity: 0; transform: translateX(-50px); }
-				to { opacity: 1; transform: translateX(0); }
-			}
-
-			@keyframes slideInRight {
-				from { opacity: 0; transform: translateX(50px); }
-				to { opacity: 1; transform: translateX(0); }
-			}
-
-			/* Buttons */
 			.btn {
 				display: inline-block;
 				padding: 1rem 2.5rem;
@@ -316,8 +212,6 @@
 				font-weight: 600;
 				font-size: 1rem;
 				transition: all 0.3s ease;
-				position: relative;
-				overflow: hidden;
 				border: none;
 				cursor: pointer;
 			}
@@ -339,25 +233,8 @@
 				box-shadow: var(--shadow-hover);
 			}
 
-			.btn::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: -100%;
-				width: 100%;
-				height: 100%;
-				background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-				transition: left 0.5s ease;
-			}
-
-			.btn:hover::before {
-				left: 100%;
-			}
-
-			/* Sections */
 			.section {
 				padding: 6rem 0;
-				position: relative;
 			}
 
 			.container {
@@ -395,7 +272,6 @@
 				margin: 0 auto;
 			}
 
-			/* Features Grid */
 			.features-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -408,20 +284,8 @@
 				padding: 3rem 2rem;
 				border-radius: 24px;
 				text-align: center;
-				position: relative;
 				transition: all 0.4s ease;
 				border: 1px solid rgba(74, 124, 90, 0.1);
-				overflow: hidden;
-			}
-
-			.feature-card::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 5px;
-				background: var(--gradient-primary);
 			}
 
 			.feature-card:hover {
@@ -440,11 +304,6 @@
 				font-size: 2rem;
 				color: white;
 				margin: 0 auto 2rem;
-				transition: transform 0.3s ease;
-			}
-
-			.feature-card:hover .feature-icon {
-				transform: scale(1.1) rotate(5deg);
 			}
 
 			.feature-title {
@@ -459,7 +318,6 @@
 				line-height: 1.6;
 			}
 
-			/* Team Section */
 			.team-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -473,23 +331,6 @@
 				border-radius: 24px;
 				text-align: center;
 				transition: all 0.4s ease;
-				position: relative;
-				overflow: hidden;
-			}
-
-			.team-card::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: -100%;
-				width: 100%;
-				height: 100%;
-				background: linear-gradient(90deg, transparent, rgba(111, 175, 122, 0.1), transparent);
-				transition: left 0.6s ease;
-			}
-
-			.team-card:hover::before {
-				left: 100%;
 			}
 
 			.team-card:hover {
@@ -508,7 +349,6 @@
 				justify-content: center;
 				font-size: 3rem;
 				color: white;
-				position: relative;
 				overflow: hidden;
 			}
 
@@ -516,7 +356,6 @@
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				border-radius: 50%;
 			}
 
 			.team-name {
@@ -544,10 +383,8 @@
 			.team-link:hover {
 				background: var(--accent-green);
 				color: white;
-				transform: translateY(-2px);
 			}
 
-			/* Statistics */
 			.stats-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -574,7 +411,74 @@
 				margin-top: 0.5rem;
 			}
 
-			/* Footer */
+			.documents-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.document-card {
+				background: white;
+				border-radius: 24px;
+				overflow: hidden;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+				transition: all 0.4s ease;
+			}
+
+			.document-card:hover {
+				transform: translateY(-10px);
+				box-shadow: var(--shadow-hover);
+			}
+
+			.document-preview {
+				width: 100%;
+				height: 200px;
+				background: linear-gradient(135deg, #f0f7f0 0%, #e8f4e8 100%);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 5rem;
+				color: var(--accent-green);
+			}
+
+			.document-info {
+				padding: 2rem;
+				text-align: center;
+			}
+
+			.document-name {
+				font-size: 1.4rem;
+				font-weight: 700;
+				color: var(--text-dark);
+				margin-bottom: 0.5rem;
+			}
+
+			.document-description {
+				color: var(--text-medium);
+				margin-bottom: 1.5rem;
+				font-size: 1.1rem;
+			}
+
+			.doc-btn {
+				display: inline-block;
+				padding: 1rem 2rem;
+				border-radius: 50px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.3s ease;
+			}
+
+			.doc-btn-primary {
+				background: var(--gradient-primary);
+				color: white;
+			}
+
+			.doc-btn:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+			}
+
 			.footer {
 				background: var(--primary-green);
 				color: white;
@@ -582,30 +486,6 @@
 				text-align: center;
 			}
 
-			.footer-content {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				flex-wrap: wrap;
-				gap: 2rem;
-			}
-
-			.footer-links {
-				display: flex;
-				gap: 2rem;
-			}
-
-			.footer-link {
-				color: white;
-				text-decoration: none;
-				transition: color 0.3s ease;
-			}
-
-			.footer-link:hover {
-				color: var(--light-green);
-			}
-
-			/* Scroll Indicator */
 			.scroll-indicator {
 				position: fixed;
 				top: 0;
@@ -623,37 +503,28 @@
 				transition: width 0.1s ease;
 			}
 
-			/* Responsive Design */
+			.fade-in {
+				opacity: 1;
+				transform: translateY(0);
+				transition: all 0.6s ease;
+			}
+
 			@media (max-width: 768px) {
-				.nav-menu {
-					position: fixed;
-					top: 100%;
-					left: 0;
-					width: 100%;
-					background: rgba(250, 249, 246, 0.95);
-					backdrop-filter: blur(20px);
-					flex-direction: column;
-					padding: 2rem;
-					transition: top 0.3s ease;
-					border-top: 1px solid rgba(74, 124, 90, 0.1);
-				}
-
-				.nav-menu.active {
-					top: 100%;
-				}
-
 				.nav-toggle {
 					display: block;
+				}
+
+				.nav-menu {
+					display: none;
 				}
 
 				.hero-content {
 					grid-template-columns: 1fr;
 					text-align: center;
-					gap: 2rem;
 				}
 
 				.hero-title {
-					font-size: 3rem;
+					font-size: 2.5rem;
 				}
 
 				.hero-icon {
@@ -661,91 +532,16 @@
 					height: 200px;
 					font-size: 5rem;
 				}
-
-				.section-title {
-					font-size: 2.5rem;
-				}
-
-				.features-grid,
-				.team-grid {
-					grid-template-columns: 1fr;
-				}
-
-				.footer-content {
-					flex-direction: column;
-					text-align: center;
-				}
-			}
-
-			/* Intersection Observer Animation Classes */
-			.fade-in {
-				opacity: 1;
-				transform: translateY(0);
-				transition: all 0.6s ease;
-			}
-
-			.fade-in.animate {
-				opacity: 0;
-				transform: translateY(30px);
-			}
-
-			.fade-in.animate.visible {
-				opacity: 1;
-				transform: translateY(0);
-			}
-
-			.slide-in-left {
-				opacity: 1;
-				transform: translateX(0);
-				transition: all 0.6s ease;
-			}
-
-			.slide-in-left.animate {
-				opacity: 0;
-				transform: translateX(-50px);
-			}
-
-			.slide-in-left.animate.visible {
-				opacity: 1;
-				transform: translateX(0);
-			}
-
-			.slide-in-right {
-				opacity: 1;
-				transform: translateX(0);
-				transition: all 0.6s ease;
-			}
-
-			.slide-in-right.animate {
-				opacity: 0;
-				transform: translateX(50px);
-			}
-
-			.slide-in-right.animate.visible {
-				opacity: 1;
-				transform: translateX(0);
 			}
 		</style>
 	</head>
 	<body>
-		<!-- Loading Screen -->
-		<div class="loading" id="loading">
-			<div class="loading-spinner"></div>
-		</div>
-
-		<!-- Scroll Indicator -->
 		<div class="scroll-indicator">
 			<div class="scroll-progress" id="scrollProgress"></div>
 		</div>
 
-		<!-- Custom Cursor -->
-		<div class="cursor" id="cursor"></div>
-		<div class="cursor-follower" id="cursorFollower"></div>
-
-		<!-- Floating Particles -->
 		<div class="particles" id="particles"></div>
 
-		<!-- Navigation -->
 		<nav class="nav-container" id="navbar">
 			<div class="navbar">
 				<a href="#" class="logo">The Polymorphs</a>
@@ -754,6 +550,7 @@
 					<li><a href="#features" class="nav-link">Features</a></li>
 					<li><a href="#team" class="nav-link">Team</a></li>
 					<li><a href="#research" class="nav-link">Research</a></li>
+					<li><a href="#documents" class="nav-link">Documents</a></li>
 				</ul>
 				<button class="nav-toggle" id="navToggle">
 					<i class="fas fa-bars"></i>
@@ -761,9 +558,7 @@
 			</div>
 		</nav>
 
-		<!-- Hero Section -->
 		<section class="hero" id="hero">
-			<div class="hero-bg"></div>
 			<div class="hero-content">
 				<div class="hero-text">
 					<p class="hero-subtitle">Innovation for Sustainability</p>
@@ -786,7 +581,6 @@
 			</div>
 		</section>
 
-		<!-- Features Section -->
 		<section class="section" id="features">
 			<div class="container">
 				<div class="section-header fade-in">
@@ -842,7 +636,6 @@
 			</div>
 		</section>
 
-		<!-- Team Section -->
 		<section class="section" id="team" style="background: var(--bg-light-green);">
 			<div class="container">
 				<div class="section-header fade-in">
@@ -854,7 +647,7 @@
 					</p>
 				</div>
 				<div class="team-grid">
-					<div class="team-card slide-in-left">
+					<div class="team-card">
 						<div class="team-avatar">
 							<img src="images/AnnaGaleano.png" alt="Anna Galeano" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-user\'></i>';">
 						</div>
@@ -862,7 +655,7 @@
 						<p class="team-role">Data Analyst & System Integration Specialist</p>
 						<a href="https://www.linkedin.com/in/connectedanna/" target="_blank" class="team-link">LinkedIn Profile</a>
 					</div>
-					<div class="team-card slide-in-right">
+					<div class="team-card">
 						<div class="team-avatar">
 							<img src="images/LouisGodfrey.png" alt="Louis Godfrey" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-user\'></i>';">
 						</div>
@@ -870,7 +663,7 @@
 						<p class="team-role">Software Developer & Project Lead</p>
 						<a href="https://www.linkedin.com/in/louis-godfrey-9b7432264" target="_blank" class="team-link">LinkedIn Profile</a>
 					</div>
-					<div class="team-card slide-in-left">
+					<div class="team-card">
 						<div class="team-avatar">
 							<img src="images/ShrinídhiKulkarni.png" alt="Shrinidhi Kulkarni" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-user\'></i>';">
 						</div>
@@ -878,7 +671,7 @@
 						<p class="team-role">UX/UI Designer & Research Analyst</p>
 						<a href="https://www.linkedin.com/in/shreenidhi-kulkarni-542810222" target="_blank" class="team-link">LinkedIn Profile</a>
 					</div>
-					<div class="team-card slide-in-right">
+					<div class="team-card">
 						<div class="team-avatar">
 							<img src="images/PrincessLeeEllerbe.png" alt="Princess Lee Ellerbe" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-user\'></i>';">
 						</div>
@@ -890,7 +683,6 @@
 			</div>
 		</section>
 
-		<!-- Research Section -->
 		<section class="section" id="research">
 			<div class="container">
 				<div class="section-header fade-in">
@@ -919,3 +711,91 @@
 						<span class="stat-number">78%</span>
 						<p class="stat-label">Want to Reduce Waste</p>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="documents" style="background: var(--bg-light-green);">
+			<div class="container">
+				<div class="section-header fade-in">
+					<p class="section-subtitle">Project Resources</p>
+					<h2 class="section-title">Project Milestones</h2>
+					<p class="section-description">
+						Access our project documentation and milestone deliverables.
+					</p>
+				</div>
+
+				<div class="documents-grid">
+					<div class="document-card fade-in tilt-effect">
+						<div class="document-preview">
+							<i class="fas fa-file-pdf"></i>
+						</div>
+						<div class="document-info">
+							<h3 class="document-name">Project Milestone 1</h3>
+							<p class="document-description">Identifying the Problem</p>
+							<a href="documents/milestone1.pdf" target="_blank" class="doc-btn doc-btn-primary">
+								<i class="fas fa-eye"></i> View PDF
+							</a>
+						</div>
+					</div>
+
+					<div class="document-card fade-in tilt-effect">
+						<div class="document-preview">
+							<i class="fas fa-file-pdf"></i>
+						</div>
+						<div class="document-info">
+							<h3 class="document-name">Project Milestone 2</h3>
+							<p class="document-description">Drastically Different Designs</p>
+							<a href="documents/milestone2.pdf" target="_blank" class="doc-btn doc-btn-primary">
+								<i class="fas fa-eye"></i> View PDF
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2024 The Polymorphs. All rights reserved. | Food Waste Reduction Initiative</p>
+			</div>
+		</footer>
+
+		<script>
+			const navbar = document.getElementById('navbar');
+			const scrollProgress = document.getElementById('scrollProgress');
+			const navToggle = document.getElementById('navToggle');
+			const navMenu = document.getElementById('navMenu');
+			const navLinks = document.querySelectorAll('.nav-link');
+
+			window.addEventListener('scroll', () => {
+				if (window.scrollY > 50) {
+					navbar.classList.add('scrolled');
+				} else {
+					navbar.classList.remove('scrolled');
+				}
+
+				const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+				const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+				const scrolled = (winScroll / height) * 100;
+				scrollProgress.style.width = scrolled + '%';
+			});
+
+			navToggle.addEventListener('click', () => {
+				navMenu.classList.toggle('active');
+			});
+
+			navLinks.forEach(link => {
+				link.addEventListener('click', (e) => {
+					e.preventDefault();
+					const targetId = link.getAttribute('href');
+					const targetSection = document.querySelector(targetId);
+					targetSection.scrollIntoView({ behavior: 'smooth' });
+					
+					navLinks.forEach(l => l.classList.remove('active'));
+					link.classList.add('active');
+				});
+			});
+		</script>
+	</body>
+</html>
